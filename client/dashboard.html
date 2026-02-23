@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+  <nav class="navbar">
+    <div class="nav-content">
+      <div class="nav-left">
+        <div class="logo-icon-small">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C20.84 4 18.06 6.24 17.26 9.24C13.58 10.26 11 13.62 11 17.5C11 22.19 14.81 26 19.5 26H35C38.86 26 42 22.86 42 19C42 15.58 39.54 12.73 36.26 12.13C35.46 7.65 31.41 4 26.5 4C26.34 4 26.17 4.01 26 4.03V4.02C25.67 4.01 25.34 4 25 4H24Z" fill="url(#gradient2)"/>
+            <defs>
+              <linearGradient id="gradient2" x1="11" y1="4" x2="42" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#60A5FA"/>
+                <stop offset="1" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h1>Weather Dashboard</h1>
+      </div>
+      <div class="nav-center">
+        <div class="favorites-display">
+          <span class="favorites-label">Favorites:</span>
+          <div id="favoritesContainer" class="favorites-container"></div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <span class="user-greeting">Welcome back!</span>
+        <button id="logoutBtn" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="dashboard-container">
+    <div class="add-city-section">
+      <div class="section-header">
+        <h2>Add New City</h2>
+        <p class="section-subtitle">Track weather in your favorite locations</p>
+      </div>
+      <form id="addCityForm" class="add-city-form">
+        <div class="input-wrapper">
+          <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <input type="text" id="cityInput" placeholder="Enter city name (e.g., London, Tokyo)" required autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Add City
+        </button>
+      </form>
+      <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <div class="cities-section">
+      <div class="section-header">
+        <h2>Your Cities</h2>
+      </div>
+      <div id="citiesContainer" class="cities-container"></div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
