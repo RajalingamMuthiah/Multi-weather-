@@ -1508,8 +1508,103 @@ body {
   transition: opacity 0.2s;
 }
 .chat-send-btn:hover { opacity: 0.88; }
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE / MOBILE  ─  phones ≤ 480 px
+───────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .chat-window { width: calc(100vw - 40px); height: 400px; }
-  .chatbot-wrapper { right: 16px; bottom: 16px; }
+  /* prevent iOS input zoom (requires font-size ≥ 16px on input) */
+  input, select, textarea { font-size: 16px !important; }
+
+  /* auth page */
+  .auth-card {
+    padding: 28px 18px;
+    border-radius: 18px;
+    margin: 12px;
+  }
+  .auth-card h1 { font-size: 22px; }
+  .auth-card p  { font-size: 14px; }
+  .tab-btn      { padding: 10px 18px; font-size: 14px; }
+  .btn-primary  { padding: 14px; font-size: 15px; min-height: 48px; }
+
+  /* navbar */
+  .nav-content { padding: 0 10px; height: 52px; gap: 6px; }
+  .logo-icon-small svg { width: 26px; height: 26px; }
+  .nav-center { display: none; }
+  .btn-logout { min-width: 40px; min-height: 40px; padding: 8px 10px; }
+
+  /* dashboard layout */
+  .dashboard-container { padding: 14px 12px 100px; }
+  .add-city-section { padding: 18px 16px; border-radius: 14px; }
+  .section-header h2 { font-size: 18px; }
+  .input-wrapper input { font-size: 15px; padding: 12px 16px; }
+  .btn-add-city { min-height: 48px; font-size: 15px; border-radius: 10px; }
+
+  /* city card */
+  .city-card { padding: 16px; border-radius: 16px; }
+  .city-header h3 { font-size: 20px; }
+  .temperature   { font-size: 48px; }
+  .weather-desc  { font-size: 14px; }
+  .weather-stats { gap: 6px; }
+  .stat-item     { font-size: 13px; padding: 6px 10px; }
+
+  /* forecast */
+  .forecast-grid       { grid-template-columns: repeat(5, 1fr); gap: 3px; }
+  .forecast-day        { padding: 7px 2px; border-radius: 8px; }
+  .forecast-date       { font-size: 10px; }
+  .forecast-icon       { font-size: 18px; }
+  .temp-max            { font-size: 13px; }
+  .temp-min            { font-size: 11px; }
+
+  /* chatbot – full-width, tall panel */
+  .chatbot-wrapper { right: 12px; bottom: 12px; }
+  .chat-toggle-btn { width: 52px; height: 52px; font-size: 22px; }
+  .chat-window {
+    width: calc(100vw - 24px);
+    height: 70vh;
+    max-height: 520px;
+    bottom: 68px;
+    right: 0;
+  }
+  .chat-input { font-size: 16px; }
+
+  /* insights panel */
+  .insights-section { padding: 12px; border-radius: 12px; }
+  .insights-row     { flex-direction: column; gap: 4px; }
+  .insights-value   { font-size: 0.82rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE – medium phones 481 – 600 px
+───────────────────────────────────────────────────────────── */
+@media (min-width: 481px) and (max-width: 600px) {
+  .dashboard-container { padding-bottom: 90px; }
+  .cities-container { grid-template-columns: 1fr; }
+  .chat-window {
+    width: calc(100vw - 32px);
+    height: 60vh;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TOUCH – coarse pointers (phones/tablets): enlarge tap targets
+───────────────────────────────────────────────────────────── */
+@media (pointer: coarse) {
+  .btn-primary, .btn-add-city, .btn-logout,
+  .btn-favorite, .btn-delete, .chat-send-btn,
+  .tab-btn, .btn-ai {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .chat-toggle-btn { width: 54px; height: 54px; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SAFE AREA – notched phones (iPhone X +)
+───────────────────────────────────────────────────────────── */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .dashboard-container { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+  .chatbot-wrapper     { bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .auth-page .container { padding-bottom: env(safe-area-inset-bottom); }
 }
 
